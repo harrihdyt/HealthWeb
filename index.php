@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Halodek- Ucapkan halodek untuk memulai percakapan</title>
+    <title>Aplikasi Konsultasi Kesehatan Terbaik di Indonesia</title>
     <link rel="shortcut icon" href="assets/halodek-favicon.svg" type="image/x-icon">
 
 
@@ -33,9 +33,9 @@
             <button class="nav-item">Riwayat</button>
         </div>
 
-        <div class="navbar-login">
+        <!-- <div class="navbar-login">
             <button class="login-item" onclick="openForm()">Login</button>
-        </div>
+        </div> -->
     </div>
 
 
@@ -43,11 +43,11 @@
         <div class="hero-content">
             <div class="search-hero">
                 <p id="title-content">Solusi Kesehatan Terlengkap</p>
-                <p id="sub-title">Layanan Booking Dokter Terbaik di Indonesia</p>
+                <p id="sub-title">Layanan Konsultasi Dokter Terbaik di Indonesia</p>
                 <button class="btn-register" onclick="openRegister()">Register</button>
             </div>
             <div class="hero-image">
-                <img class="hero-img" src="assets/bro.svg" alt="">
+                <img class="hero-img" src="assets/healthday.gif" alt="">
             </div>
         </div>
     </div>
@@ -63,17 +63,29 @@
 
     <!-- popup form login -->
 
-    <div class="form-popup" id="myForm">
+    <?php
+    if (isset($_GET['pesan'])) {
+        if ($_GET['pesan'] == "gagal") {
+            echo "Login gagal! username dan password salah!";
+        } else if ($_GET['pesan'] == "logout") {
+            echo "Anda telah berhasil logout";
+        } else if ($_GET['pesan'] == "belum_login") {
+            echo "Kamu tidak bisa masuk";
+        }
+    }
+    ?>
+
+    <!-- <div class="form-popup" id="myForm">
         <form action="php/login.php" class="form-container">
             <h1>Login</h1>
 
             <label for="email"><b>Email</b></label>
-            <input type="text" placeholder="Enter Email" name="email" required>
+            <input type="text" placeholder="Enter Email" name="name" required>
 
             <label for="password"><b>Password</b></label>
-            <input type="password" placeholder="Enter Password" name="user_password" required>
+            <input type="password" placeholder="Enter Password" name="password" required>
 
-            <button type="submit" class="btn">Login</button>
+            <button type="submit" class="btn" value="submit">Login</button>
             <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
 
             <p>Don't have account?
@@ -81,7 +93,7 @@
             </p>
 
         </form>
-    </div>
+    </div> -->
 
 
     <!-- end -->
@@ -93,25 +105,22 @@
             <h1>Register</h1>
 
             <label for="name"><b>Name</b></label>
-            <input type="text" placeholder="Enter Name" name="username" required>
+            <input type="text" placeholder="Enter Name" name="name" required>
 
 
             <label for="nik"><b>Nik</b></label>
-            <input type="text" placeholder="Enter NIK" name="user_nik" required>
-
-            <label for="phone"><b>Phone Number</b></label>
-            <input type="text" placeholder="Enter Phone Number" name="user_phone" required>
+            <input type="text" placeholder="Enter NIK" name="nik" required>
 
             <label for="email"><b>Email</b></label>
-            <input type="text" placeholder="Enter Email" name="user_email" required>
+            <input type="text" placeholder="Enter Email" name="email" required>
 
             <label for="psw"><b>Password</b></label>
-            <input type="password" placeholder="Enter Password" name="user_password" required>
+            <input type="password" placeholder="Enter Password" name="password" required>
 
             <button type=" submit" class="btn" value="submit">Register</button>
             <button type="button" class="btn cancel" onclick="closeRegister()">Close</button>
 
-            <p>Have already an acount? <a href="">Login here</a></p>
+
         </form>
     </div>
 
